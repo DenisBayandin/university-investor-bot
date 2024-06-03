@@ -1,5 +1,6 @@
 import telebot
 import os
+import numpy as np
 
 from models import *
 from config import bot_token
@@ -39,7 +40,9 @@ def get_count_predictons(message):
     BOT.send_photo(message.from_user.id, "https://gas-kvas.com/grafic/uploads/posts/2023-09/1695826322_gas-kvas-com-p-kartinki-s-kotikami-27.jpg")
     result = get_prediction(TICKET_NAME, COUNT_PREDICTIONS)
     BOT.send_message(message.from_user.id,
-                     round(result, 2) if isinstance(result, float) or isinstance(result, int) else
+                     f"Прогноз: {round(result, 2)}" if isinstance(result, float) or
+                                                       isinstance(result, int) or
+                                                       isinstance(result, np.float32) else
                      "\n".join([f"{index + 1} день: {value_result:.2f} \u20BD" for index,
                      value_result in enumerate(result)]))
 
