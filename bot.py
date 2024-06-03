@@ -43,7 +43,7 @@ def get_count_predictons(message):
                      f"Прогноз: {round(result, 2)}" if isinstance(result, float) or
                                                        isinstance(result, int) or
                                                        isinstance(result, np.float32) else
-                     "\n".join([f"{index + 1} день: {value_result:.2f} \u20BD" for index,
+                     "\n".join([f"{index + 1} день: {value_result:.2f} $" for index,
                      value_result in enumerate(result)]))
 
 
