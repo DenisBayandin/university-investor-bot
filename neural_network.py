@@ -104,7 +104,7 @@ def create_and_testing_model():
 def get_preidict_by_ready_model(stock_abbreviation, train_close, test_close, scaler, number_of_values: int):
     if number_of_values == 1:
         model = load_custom_model(f"models/{stock_abbreviation}_keras_model.keras")
-        return predict_value(model, train_close, test_close, scaler)
+        return predict_value(model, train_close, test_close, scaler, number_of_values=number_of_values)
     else:
         predict_values = []
         for value in range(0, number_of_values):
